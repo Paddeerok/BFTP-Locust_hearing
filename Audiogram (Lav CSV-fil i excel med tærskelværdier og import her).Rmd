@@ -1,0 +1,25 @@
+---
+title: "Audiogram"
+output: html_document
+date: "2023-05-03"
+---
+#Loading packages
+```{r}
+pacman::p_load('tidyverse', 'ggplot2','audiometry')
+```
+#Importing audiogram csv file to dataframe
+```{r}
+Audiogram = read.csv('Audiogram2.csv')
+
+```
+
+
+```{r}
+ggplot(data = Audiogram, mapping = aes(x = Frequency.kHz, y = Hearing.limits.dB))+
+  geom_line(lwd=.8,size=2)+
+  xlim(0,20000)+ ylim(0,90)+
+  xlab("Frekvens i Hertz") + ylab("Tærskel for hørelse i dB")
+
+
+```
+
